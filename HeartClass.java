@@ -1,0 +1,47 @@
+// Author : Nathan Li
+// ICS4U Final Project
+// Baker's Dozen Solitaire
+import java.awt.*;
+
+public class HeartClass extends SuitClass
+{
+    public HeartClass ()
+    {
+	setColor (Color.red);
+    }
+
+
+    public HeartClass (int iNewWidth, int iNewHeight, int iNewCentreX, int iNewCentreY, Color cNewColor)
+    {
+	setWidth (iNewWidth);
+	setHeight (iNewHeight);
+	setCentre (iNewCentreX, iNewCentreY);
+	setColor (cNewColor);
+    }
+
+
+    public void draw (Graphics c)
+    {
+	int iPointsX[] = new int [5];
+	int iPointsY[] = new int [5];
+
+	iPointsX [0] = getCentreX() - getWidth() / 2;
+	iPointsY [0] = getCentreY();
+	iPointsX [1] = getCentreX() + getWidth() / 2;
+	iPointsY [1] = getCentreY();
+	iPointsX [2] = getCentreX();
+	iPointsY [2] = getCentreY() + getHeight() / 2;
+	iPointsX [3] = getCentreX() - getWidth() / 2;
+	iPointsY [3] = getCentreY() - getHeight() / 4;
+	iPointsX [4] = getCentreX();
+	iPointsY [4] = getCentreY() - getHeight() / 4;
+
+	c.setColor (getColor());
+
+	c.fillArc (iPointsX [3], iPointsY [3], getWidth() / 2, getHeight() / 2, 0, 180);
+	c.fillArc (iPointsX [4], iPointsY [4], getWidth() / 2, getHeight() / 2, 0, 180);
+	c.fillPolygon (iPointsX, iPointsY, 3);
+
+
+    }
+}
